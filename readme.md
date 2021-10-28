@@ -127,3 +127,24 @@ A partir da execução o container não mais terá conexão com a rede indicada 
 
 ## Compose
 
+Executar o comando a seguir faz com que sejam inicializados os serviços declarados no arquivo .yml contidos no diretório atual.
+
+__docker-compose up__
+
+__-d__ Para executar no modo daemon
+
+__docker-compose ps__ Para listar os processos em execução
+
+---
+
+### Executando comandos juntos da inicialização do docker-compose
+
+__docker-compose exec **servico e comandos**__ Executar comandos dentro de serviços especificos.
+
+Exemplo:
+
+__docker-compose exec db psql -U usuario -c '\l'__
+
+- Dentro do arquivo .yml foi declarado um serviço nomeado de db que executa uma imagem do **POSTGRES**.
+- Seta o usuário a partir do comando -U usuario
+- Executa o comando '\l' dentro do serviço do postgres utilizando o comando -c para listar as tabelas contidas dentro do banco de dados.
