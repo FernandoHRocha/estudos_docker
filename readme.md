@@ -102,7 +102,7 @@ Modelo padrão aplicado aos Containers do Docker, onde é gerado uma ponte entre
 
 ### Criação de rede
 
-__docker network create --driver none/bridge/host/overlay
+__docker network create --driver none/bridge/host/overlay__
 
 ---
 
