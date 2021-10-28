@@ -146,9 +146,11 @@ Exemplo:
 __docker-compose exec db psql -U usuario -c '\l' -f diretorio/arquivo.sql__
 
 - Dentro do arquivo .yml foi declarado um serviço nomeado de db que executa uma imagem do **POSTGRES**.
-- Seta o usuário a partir do comando -U usuario
-- Executa o comando '\l' dentro do serviço do postgres utilizando o comando -c para listar as tabelas contidas dentro do banco de dados.
-- Execute o arquivo.sql pelo comando -f.
+- Seta o usuário a partir do comando __-U nome_usuario__
+- Executa o comando __'\l'__ dentro do serviço do postgres utilizando o comando -c para listar as tabelas contidas dentro do banco de dados.
+- Execute o arquivo.sql pelo comando __-f__.
+- Execute o comando __-d nome_do_banco__ para entrar no banco 
+
 
 ### Scripts do POSTGRE
 
