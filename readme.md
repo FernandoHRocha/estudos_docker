@@ -143,8 +143,15 @@ __docker-compose exec **servico e comandos**__ Executar comandos dentro de servi
 
 Exemplo:
 
-__docker-compose exec db psql -U usuario -c '\l'__
+__docker-compose exec db psql -U usuario -c '\l' -f diretorio/arquivo.sql__
 
 - Dentro do arquivo .yml foi declarado um serviço nomeado de db que executa uma imagem do **POSTGRES**.
 - Seta o usuário a partir do comando -U usuario
 - Executa o comando '\l' dentro do serviço do postgres utilizando o comando -c para listar as tabelas contidas dentro do banco de dados.
+- Execute o arquivo.sql pelo comando -f.
+
+### Scripts do POSTGRE
+
+\l              - lista as tabelas contidas no banco
+\c email_sender - conecta-se ao banco de dados
+\d emails       - descreve a tabela emails

@@ -1,8 +1,24 @@
 version: '3'
+volumes:
+  dados:
 services:
   db:
     image: postgres:9.6
+    volumes:
+      #diretório dos dados
+      #- repositório_local:repositório_do_container
+      - dados:/var/lib/postgresql/data
+      #diretório dos scripts
+      - ./scripts:/scripts
+      #Para executar scripts na inicialização do container, usa-se o /docker-entrypoint-initdb.d conforme documentação constante em https://hub.docker.com/_/postgres
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     restart: always
     environment:
       POSTGRES_PASSWORD: example
-
+  frontend:
+    image: nginx:1.13
+    volumes:
+      # Site
+      - ./web:/usr/share/nginx/html/
+    ports:
+      - 80:80
