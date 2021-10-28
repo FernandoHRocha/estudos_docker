@@ -125,7 +125,5 @@ __docker network disconnect **nome_da_rede nome_do_container**__
 A partir da execução o container não mais terá conexão com a rede indicada e os containers que a utilizam.
 
 
-
-
 ## Compose
 
