@@ -40,7 +40,7 @@ Define argumentos que podem ser informados no momento do build através do parâ
 
 Para a utilização de argumentos, se faz necessário a declaração da variável com a sintaxe a seguir:
 
-**VAR=${VAR}**
+__VAR=${VAR}__
 
 De modo que o nome da variável contenha o prefixo **$** e esteja dentro de colchetes.
 
