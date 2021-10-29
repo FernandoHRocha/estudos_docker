@@ -49,6 +49,11 @@ services:
     depends_on:
       - db
       - queue
+    environment:
+      - DB_NAME=nome_a_sobrescrever
+      - DB_USER=postgres
+      - DB_HOST=db
+      - REDIS_HOST=queue
   queue:
     image: redis:3.2
     networks:
@@ -63,3 +68,5 @@ services:
       - fila
     depends_on:
       - queue
+    environment:
+      - REDIS_HOST=queue

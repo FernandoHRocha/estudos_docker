@@ -99,8 +99,12 @@ Instrui a execução do container a criar um volume para um diretório indicado 
 
 ## Composição pelo arquivo .yml
 
+É possível carregar configurações de inicialização para os containers criados pelo docker, o processo acontece a partir do arquivo .yml contido na pasta raiz do projeto.
+
+Pode-se ainda sobrescrever os valores do arquivo de composição .yml inicial através de um arquivo .override.yml.
+
 ### VOLUMES
-Faz a conexão entre os repositórios do host e do container
+Faz a conexão entre os repositórios do host e do container.
 
 ### SERVICES
 Declara os serviços que serão utilizados dentro da composição.
@@ -109,6 +113,9 @@ Para montar um container com base em um documento Dockerfile usamos **build:**
 
 ### NETWORKS
 Usado para declarar as redes a serem utilizadas pelos serviços, e posteriormente devem ser definidas dentro do serviço, quais redes ele terá acesso.
+
+### ENVIRONMENT
+Utilizado dentro dos serviços para configuração do ambiente de execução do serviço.
 
 ## REDE
 
@@ -166,7 +173,7 @@ Executar o comando a seguir faz com que sejam inicializados os serviços declara
 
 __docker-compose up__
 
-__-d__ Para executar no modo daemon
+__-d__ Para executar no modo detach, liberando o uso do terminal.
 
 __docker-compose ps__ Para listar os processos em execução
 
