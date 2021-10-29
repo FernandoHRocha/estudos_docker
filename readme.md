@@ -2,30 +2,52 @@
 
 ---
 
+## Execuções em containers
+
+__sudo docker start nome_do_container__
+
+Executa um container montado, que encontra-se fora de execução.
+
+__sudo docker stop nome_do_container__
+
+Encerra a execução de container em execução.
+
+__sudo docker exec nome_do_container__
+
+Utilizado para executar um comando dentro do container em execução.
+
+
 ## Preparação de Imagem (build) - comandos
 
 ### docker image pull <tag>
+
 Baixa a imagem solicitada, este comando pode ser executado implicitamente, quando o docker precisa de uma imagem para outra operação e não consegue localiza-la no cache local.
 
 ### docker image ls
+
 Lista todas as imagens já baixadas, é possível ainda usar a sintaxe antiga: docker images
 
 ### docker image rm <tag>
+
 Remove uma imagem do cache local.
 
 ### docker image inspect <tag>
+
 Extrai diversas informações utilizando um formato JSON da imagem indicada.
 
 ### docker image tag <source> <tag>
+
 Cria uma nova tag baseada em uma tag anterior ou hash.
 
 ### docker image build -t <tag>
+
 Permite a criação de uma nova imagem.
 
 ### docker image push <tag>
+
 Permite o envio de uma imagem ou tag local para um registry.
 
-## Preparação da Imagem (Dockerfile) - Comandos
+## Dockerfile
 ### FROM
 Especifica a imagem base a ser utilizada pela nova imagem. Importando todas as layers nela contida.
 
@@ -74,6 +96,19 @@ Especifica qual o usuário que será usado para execução do processo no contai
 Instrui a execução do container a criar um volume para um diretório indicado e copia todo o conteúdo do diretório na imagem para o volume criado. Isto simplificará no futuro, processos de compartilhamento destes dados para backup por exemplo.
 
 ---
+
+## Composição pelo arquivo .yml
+
+### VOLUMES
+Faz a conexão entre os repositórios do host e do container
+
+### SERVICES
+Declara os serviços que serão utilizados dentro da composição.
+Para executar um container a partir de imagens criadas utiliza-se a declaração **image:**
+Para montar um container com base em um documento Dockerfile usamos **build:**
+
+### NETWORKS
+Usado para declarar as redes a serem utilizadas pelos serviços, e posteriormente devem ser definidas dentro do serviço, quais redes ele terá acesso.
 
 ## REDE
 
@@ -151,6 +186,10 @@ __docker-compose exec db psql -U usuario -c '\l' -f diretorio/arquivo.sql__
 - Execute o arquivo.sql pelo comando __-f__.
 - Execute o comando __-d nome_do_banco__ para entrar no banco 
 
+### Escalabilidade de processos
+
+__docker-compose up -d --scale nome_do_servico=numero_de_instancias__
+Utilizado para definir quantas instancias do mesmo serviço deverão ser executados.
 
 ### Scripts do POSTGRE
 
