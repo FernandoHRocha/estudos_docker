@@ -81,7 +81,8 @@ Expõe determinadas portas remapeadas no container. A exposição da porta não 
 **-p nova_porta:porta_para_redirecionar**
 
 ### WORKDIR
-Indica o diretório em que o processo principal será executado.
+Configura o diretório de atuação para a execução dos próximos comandos, quando se tratar de uma referencia relativa, será em relação a referência WORKDIR anteriormente configurada.
+[Documentação do Docker sobre WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir)
 
 ### ENTRYPOINT
 Especifica o processo inicial do container.
